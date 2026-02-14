@@ -1,0 +1,6 @@
+POST http://127.0.0.1:5000/api/request
+Content-Type: application/json
+
+{
+    "url": "https://open.spotify.com/playlist/6wmkXU3DOnipzbRgg3qFGh?si=208c627bf77a4a1a"
+}
