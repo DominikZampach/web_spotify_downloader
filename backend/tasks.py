@@ -34,7 +34,8 @@ def download_playlist_task(self, spotify_url):
         self.update_state(state='PROGRESS', meta={
             'current': i + 1, 
             'total': total, 
-            'status': f'Zpracovávám: {song.name}'
+            'status': f'Zpracovávám: {song.name}',
+            'song_photo': f'{song.photo}'
         })
         
         yt_url = yt.get_video_url(song.search_query)
@@ -59,7 +60,7 @@ def download_playlist_task(self, spotify_url):
     #? Naplánuje smazání za 300 sekund (5 minut)
     cleanup_files.apply_async(args=[zip_filename], countdown=300)
     
-    return {'status': 'Completed', 'zip_url': f'/api/download/{zip_filename}', 'filename': zip_filename}
+    return {'status': 'Completed', 'zip_url': f'/api/download/{zip_filename}', 'filename': zip_filename,}
 
 @celery.task
 def cleanup_files(filename):
