@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="95.612457mm"
-   height="31.19422mm"
-   viewBox="0 0 95.612457 31.19422"
+   width="95.61393mm"
+   height="31.01561mm"
+   viewBox="0 0 95.61393 31.01561"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
@@ -23,26 +23,30 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="2.1089995"
-     inkscape:cx="176.86111"
-     inkscape:cy="196.06453"
+     inkscape:zoom="1.0544998"
+     inkscape:cx="-77.761991"
+     inkscape:cy="207.20726"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" /><defs
+     inkscape:current-layer="layer1"
+     inkscape:export-bgcolor="#ffffff00" /><defs
      id="defs1" /><g
      inkscape:label="Vrstva 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-1.5530498,-30.328563)"><text
+     transform="translate(-1.5530498,-30.507175)"><text
        xml:space="preserve"
        style="font-size:30.1678px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.4654;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        x="0.99464542"
        y="52.466095"
        id="text1"
-       transform="scale(0.97175129,1.0290699)"><tspan
+       transform="scale(0.97175129,1.0290699)"
+       inkscape:export-filename="SpotiGetLogoExportPng.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          sodipodi:role="line"
          id="tspan1"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Prompt;-inkscape-font-specification:Prompt;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.4654;stroke-dasharray:none;stroke-opacity:1"
@@ -50,8 +54,11 @@
          y="52.466095">Spoti</tspan></text><g
        style="fill:#1db954;fill-opacity:1;stroke:#1db954;stroke-opacity:1"
        id="g1"
-       transform="matrix(0.7878856,0,0,0.7878856,73.538389,30.722505)"
-       inkscape:label="Download"><g
+       transform="matrix(0.7879845,0,0,0.7820813,73.536907,30.898216)"
+       inkscape:label="Download"
+       inkscape:export-filename="..\..\..\Programming_projects\Mobile_development\Flutter\SpotiGet\frontend\web\favicon.png"
+       inkscape:export-xdpi="17.194269"
+       inkscape:export-ydpi="17.194269"><g
          id="g17"
          style="fill:#1db954;fill-opacity:1;stroke:#1db954;stroke-opacity:1">
 	<path

@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "SpotiGet",
-      theme: ThemeData(useMaterial3: true, colorScheme: Consts.colorScheme),
+      theme: Consts.getThemeData(context),
       home: MainScreen(),
     );
   }

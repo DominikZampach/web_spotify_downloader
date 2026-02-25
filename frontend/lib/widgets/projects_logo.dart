@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class ProjectsLogo extends StatelessWidget {
+class ProjectLogo extends StatelessWidget {
   final double width;
-  final double height;
-  const ProjectsLogo({super.key, required this.width, required this.height});
+  const ProjectLogo({super.key, required this.width});
+
+  final String logoPath = 'assets/logos/SpotiGetLogoExportSvg.svg';
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SvgPicture.asset(
+      logoPath,
+      width: width,
+      alignment: AlignmentGeometry.center,
+      semanticsLabel: 'SpotiGet logo',
+    );
   }
 }
