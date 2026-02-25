@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Spotify Downloader",
+      title: "SpotiGet",
       theme: ThemeData(useMaterial3: true, colorScheme: Consts.colorScheme),
       home: MainScreen(),
     );

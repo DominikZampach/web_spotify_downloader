@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:web_spotify_downloader/consts.dart';
-import 'package:web_spotify_downloader/widgets/information_textbox_label_up.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,40 +13,39 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile = MediaQuery.of(context).size.width < 600;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    bool isMobile = screenWidth < 600;
 
-    return Scaffold(
-      body: SizedBox(
+    if (!isMobile) {
+      //? Desktopové zobrazení
+      return Container(
         width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsetsGeometry.directional(top: 30),
-              child: Text(
-                "Spotify Downloader",
-                style: TextStyle(
-                  fontSize: Consts.h1,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            SizedBox(height: isMobile ? 20 : 50),
-            InformationTextboxLabelUp(
-              context: context,
-              verticalPadding: 5,
-              textUp: "URL address of playlist/album",
-              controller: urlController,
-              spacingGap: 5,
-              smallerFontSize: Consts.smaller,
-              fontSize: Consts.normal,
-              textBoxWidth: isMobile ? 300 : 700,
-              alignOnLeft: true,
-            ),
-          ],
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Consts.surface, Consts.primary],
+            radius: 8,
+          ),
         ),
-      ),
-    );
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [],
+              ),
+              SizedBox(height: screenHeight * 0.2),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Container(child: Text("MOBILE"));
   }
 }
