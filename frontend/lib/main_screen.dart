@@ -18,8 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   dynamic startDownloadFunction() {
     //TODO: Vypracovat tuto funkci: Musí umět kontrolovat, že se jedná o validní spotify adresu (nějaká funkce) a poté uživatele hodit do nějakého DialogWindow (ze kterého nebude moct odejít!), kde se začne ukazovat progress stahování a pak výsledný stažený soubor
     if (isSpotifyUrlValid(urlController.text)) {
-
-    }else {
+    } else {
       //TODO: Vypíše nějakou chybovou hlášku, asi využít FlutterToastu?
     }
   }
@@ -28,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    bool isMobile = screenWidth < 600;
+    bool isMobile = Consts.isMobile(screenWidth);
 
     if (!isMobile) {
       //? Desktopové zobrazení

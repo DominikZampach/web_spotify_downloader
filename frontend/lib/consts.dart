@@ -17,8 +17,18 @@ class Consts {
   static double normalMobile = 25;
   static double smallerMobile = 20;
 
+  static double mobileScreenWidth = 600;
+
+  static bool isMobile(double width) {
+    if (width < Consts.mobileScreenWidth) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   static ThemeData getThemeData(BuildContext context) {
-    bool isMobile = MediaQuery.of(context).size.width < 600;
+    bool isMobile = Consts.isMobile(MediaQuery.of(context).size.width);
 
     return ThemeData(
       useMaterial3: true,
