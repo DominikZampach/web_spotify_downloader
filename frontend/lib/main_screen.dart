@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:web_spotify_downloader/consts.dart';
+import 'package:web_spotify_downloader/logic/is_spotify_url_valid.dart';
+import 'package:web_spotify_downloader/widgets/input_textbox.dart';
 import 'package:web_spotify_downloader/widgets/projects_logo.dart';
+import 'package:web_spotify_downloader/widgets/start_download_button.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,6 +15,15 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final TextEditingController urlController = TextEditingController();
 
+  dynamic startDownloadFunction() {
+    //TODO: Vypracovat tuto funkci: Musí umět kontrolovat, že se jedná o validní spotify adresu (nějaká funkce) a poté uživatele hodit do nějakého DialogWindow (ze kterého nebude moct odejít!), kde se začne ukazovat progress stahování a pak výsledný stažený soubor
+    if (isSpotifyUrlValid(urlController.text)) {
+
+    }else {
+      //TODO: Vypíše nějakou chybovou hlášku, asi využít FlutterToastu?
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
@@ -20,92 +32,114 @@ class _MainScreenState extends State<MainScreen> {
 
     if (!isMobile) {
       //? Desktopové zobrazení
-      return Container(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [Consts.surface, Consts.primary],
-            radius: 8,
+      return Scaffold(
+        body: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              colors: [Consts.surface, Consts.primary],
+              radius: 8,
+            ),
           ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Flexible(
-                flex: 4,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    ProjectLogo(width: 100),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        //TODO
-                      },
-                      label: Padding(
-                        padding: const EdgeInsets.all(5),
-                        child: Text(
-                          "Log into Spotify",
-                          style: Theme.of(context).textTheme.bodyMedium,
+          child: Padding(
+            padding: EdgeInsets.all(30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  flex: 4,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      ProjectLogo(width: 100),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          //TODO
+                        },
+                        label: Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: Text(
+                            "Log into Spotify",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.download_for_offline_rounded,
+                          color: Consts.primary,
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                            Consts.surface.withValues(alpha: 0.6),
+                          ),
                         ),
                       ),
-                      icon: Icon(
-                        Icons.download_for_offline_rounded,
-                        color: Consts.primary,
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(
-                          Consts.surface.withValues(alpha: 0.6),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Spacer(flex: 1),
-              Flexible(
-                flex: 1,
-                child: SizedBox(
-                  width: double.infinity,
-                  child: SelectableText.rich(
-                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                    TextSpan(
-                      children: [
-                        TextSpan(text: "Spoti"),
-                        TextSpan(
-                          text: "Get",
-                          style: TextStyle(color: Consts.primary),
-                        ),
-                      ],
+                Spacer(flex: 1),
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: SelectableText.rich(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                      TextSpan(
+                        children: [
+                          TextSpan(text: "Spoti"),
+                          TextSpan(
+                            text: "Get",
+                            style: TextStyle(color: Consts.primary),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: screenHeight * 0.01,
-              ), //? Možná předělat do Spaceru
-              Flexible(
-                flex: 1,
-                child: SizedBox(
-                  width: double.infinity,
-                  child: SelectableText(
-                    "Download your favourite playlist and albums in high quality.",
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Consts.secondary,
-                      fontStyle: FontStyle.italic,
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ), //? Možná předělat do Spaceru
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: SelectableText(
+                      "Download your favourite playlist and albums in high quality.",
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: Consts.secondary,
+                        fontStyle: FontStyle.italic,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
-              ),
-            ],
+                Center(
+                  child: InputTextbox(
+                    textController: urlController,
+                    width:
+                        800, //? Tady si můžu dovolit fixní width, protože při 600 to jde na mobilní view a zároveň padding zajišťuje, že vždy bude mezera od krajů a také se to začne automaticky zmenšovat
+                    horizontalPadding: 30,
+                    verticalPadding: 20,
+                  ),
+                ),
+                Center(
+                  child: StartDownloadButton(
+                    onClickedFunc: () {},
+                    width: 400,
+                    horizontalPadding: 30,
+                    bottomPadding: 20,
+                  ),
+                ),
+                Center(
+                  child: SizedBox(width: 800, child: Divider(thickness: 1)),
+                ),
+              ],
+            ),
           ),
         ),
       );
